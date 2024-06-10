@@ -2,13 +2,14 @@ name: Nodecicd
 on:
   push:
     branches:
-      - main
+      - master
 jobs: 
   build:
     strategy:
       matrix:
         node-version: [ 20.x]
-    runs-on: self-hosted
+        operating-system: [ self-hosted ]
+    runs-on: ${{  matrix.operating-system}}
     steps:
       - name: get code
         uses: actions/checkout@v4
